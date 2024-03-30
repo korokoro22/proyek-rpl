@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DataUserController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -26,6 +28,21 @@ Route::post('/news/update', [NewsController::class, 'update'])->middleware(['aut
 Route::post('/news/delete', [NewsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('delete.news');
 
 
+// kegiatan
+Route::get('/', [KegiatanController::class. 'index']);
+Route::post('/kegiatan', [KegiatanController::class, 'store'])->middleware(['auth', 'verified'])->name('create.kegiatan');
+Route::get('/kegiatan', [KegiatanController::class, 'show'])->middleware(['auth', 'verified'])->name('my.kegiatan');
+Route::get('/kegiatan/edit', [KegiatanController::class, 'edit'])->middleware(['auth', 'verified'])->name('edit.kegiatan');
+Route::post('/kegiatan/update', [KegiatanController::class, 'update'])->middleware(['auth', 'verified'])->name('update.kegiatan');
+Route::post('/kegiatan/delete', [KegiatanController::class, 'destroy'])->middleware(['auth', 'verified'])->name('delete.kegiatan');
+
+// data user
+Route::get('/', [DataUserController::class. 'index']);
+Route::post('/data-user', [DataUserController::class, 'store'])->middleware(['auth', 'verified'])->name('create.data-user');
+Route::get('/data-user', [DataUserController::class, 'show'])->middleware(['auth', 'verified'])->name('my.data-user');
+Route::get('/data-user/edit', [DataUserController::class, 'edit'])->middleware(['auth', 'verified'])->name('edit.data-user');
+Route::post('/data-user/update', [DataUserController::class, 'update'])->middleware(['auth', 'verified'])->name('update.data-user');
+Route::post('/data-user/delete', [DataUserController::class, 'destroy'])->middleware(['auth', 'verified'])->name('delete.data-user');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
