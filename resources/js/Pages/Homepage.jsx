@@ -1,22 +1,27 @@
 import React from "react";
 import Navbar from "@/Components/Navbar";
 import { Link, Head } from "@inertiajs/react";
-import NewsLists from "@/Components/Homepage/NewsLists";
-import Paginator from "@/Components/Homepage/Paginator";
+import Header from "@/Components/Header";
+import CarouselHero from "@/Components/Homepage/CarouselHero";
+import LayananContainer from "@/Components/Homepage/LayananHome/LayananContainer";
+import { layananData } from "../utils/layanan";
+import { penunjangData } from "@/utils/penunjang";
+import { teamData } from "@/utils/teamDpi";
+import PenunjangContainer from "@/Components/Homepage/PenunjangHome/PenunjangContainer";
+import ProfileContainer from "@/Components/Homepage/ProfileHome/ProfileContainer";
+import KlienTerpercaya from "@/Components/Homepage/KlienTerpercaya";
+import Footer from "@/Components/Footer";
 
-
-export default function Homepage(props) {
-    
+export default function Homepage() {
     return (
-        <div className=" min-h-screen bg-slate-50 ">
-            <Head title={props.title} />
-            <Navbar user={props.auth.user} />
-            <div className="flex justify-center flex-col lg:flex-row items-center gap-4 lg:flex-wrap lg:items-stretch p-4  ">
-                <NewsLists news={props.news.data} />
-            </div>
-            <div className="flex justify-center items-center">
-                <Paginator meta={props.news.meta} />
-            </div>
+        <div>
+            <Header />
+            <CarouselHero />
+            <LayananContainer layanans={layananData()} />
+            <PenunjangContainer penunjangs={penunjangData()} />
+            <ProfileContainer profiles={teamData()} />
+            <KlienTerpercaya />
+            <Footer />
         </div>
     );
 }
