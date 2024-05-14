@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data-user', function (Blueprint $table) {
-            $table->id();
+        Schema::create('data_pengguna', function (Blueprint $table) {
+            
+            $table->string('nik')->primary();
+            // $table->increments('id');
             $table->string('nama');
-            $table->string('umur');
+            $table->string('usia');
             $table->string('jenis_kelamin');
             $table->string('pekerjaan');
             $table->string('alamat');
-            $table->string('kontak');
-            $table->date('waktu_temu');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('data_pengguna');
     }
 };
