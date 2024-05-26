@@ -12,21 +12,21 @@ const RegisterForm = () => {
                         </h1>
                         <input
                             type="text"
-                            placeholder="Alamat Email"
+                            placeholder="Nama Depan"
                             className="input input-bordered  md:h-[3.5em] border-[#D1D1D1] w-full mt-5"
                         />
                         <input
                             type="text"
-                            placeholder="Password"
+                            placeholder="Nama Belakang"
                             className="input input-bordered md:h-[3.5em] border-[#D1D1D1] w-full"
                         />
                         <input
                             type="text"
-                            placeholder="Password"
+                            placeholder="Alamat Email"
                             className="input input-bordered md:h-[3.5em] border-[#D1D1D1] w-full"
                         />
                         <input
-                            type="text"
+                            type="password"
                             placeholder="Password"
                             className="input input-bordered md:h-[3.5em] border-[#D1D1D1] w-full"
                         />
