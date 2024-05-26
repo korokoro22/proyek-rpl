@@ -4,7 +4,7 @@ import Hero2 from "./Hero2";
 
 const CarouselHero = () => {
     return (
-        <div className="pt-24">
+        <div className="">
             <div className="bg-black">
                 <Hero1 />
                 {/* <Hero2 /> */}

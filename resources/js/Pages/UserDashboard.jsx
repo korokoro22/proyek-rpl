@@ -1,14 +1,10 @@
-import Footer from '@/Components/Footer'
-import Header from '@/Components/Header'
+import UserLayout from "@/Components/Layout/UserLayout"
 
-import React from 'react'
-
-const UserDashboard = () => {
+const UserDashboard = ({}) => {
   return (
-    <div>
-        <Header />
-        <Footer />
-    </div>
+    <UserLayout>
+      User Dashboard
+    </UserLayout>
   )
 }
 

@@ -24,7 +24,7 @@ const Header = () => {
     ];
 
     return (
-        <div className="w-full h-24 bg-[#020202]  flex fixed z-50 items-center justify-between">
+        <div className="w-full h-24 bg-[#020202]  flex sticky z-50 items-center justify-between top-0">
             <div className="text-white lg:ml-10 ml-3">
                 <img src={DpiLogo} alt="" className="md:h-12 h-10 " />
                 <h1 className="font-inter font-semibold text-xs lg:text-lg">
@@ -140,7 +140,7 @@ const Header = () => {
                                 <Link href="/kegiatan-berita">Kegiatan </Link>
                             </li>
                             <li>
-                                <Link>Artikel</Link>
+                                <Link href="/artikel-berita">Artikel</Link>
                             </li>
                         </ul>
                     </div>
@@ -154,7 +154,7 @@ const Header = () => {
                     </Link>
                 </li>
                 <li>
-                    {login ? (
+                    {/* {login ? (
                         <div className="flex items-center gap-1">
                             <div className="avatar">
                                 <div className="w-14 rounded-full">
@@ -209,7 +209,12 @@ const Header = () => {
                         >
                             Masuk
                         </button>
-                    )}
+                    )} */}
+                    <Link href="/login-dpi">
+                        <button className="font-inter font-semibold xl:text-xl lg:text-lg mr-10 px-4 hover:bg-[#f3d457] hover:text-black py-[0.30rem] rounded-xl	 text-black bg-white">
+                            Masuk
+                        </button>
+                    </Link>
                 </li>
             </ul>
 
