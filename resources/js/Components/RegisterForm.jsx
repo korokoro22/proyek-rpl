@@ -30,18 +30,12 @@ const RegisterForm = () => {
                             placeholder="Password"
                             className="input input-bordered md:h-[3.5em] border-[#D1D1D1] w-full"
                         />
-                        <p className="text-right text-sm">
-                            Tidak Punya akun?{" "}
-                            <Link
-                                href="/register-dpi"
-                                className="text-[#24A0ED]"
-                            >
-                                Buat Akun
-                            </Link>
-                        </p>
-                        <button className="btn bg-[#F3D457] hover:bg-[#F3D457]">
-                            Button
+                        <Link href="/login-dpi" className=''>
+                        <button className="btn bg-[#F3D457] hover:bg-[#F3D457] text-white text-lg w-full">
+                            Register
                         </button>
+                        </Link>
+                        
                     </div>
                 </form>
             </div>

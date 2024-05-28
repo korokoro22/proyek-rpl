@@ -1,3 +1,4 @@
+import { Link } from "@inertiajs/react";
 import React from "react";
 const BiodataForm = () => {
     return (
@@ -111,10 +112,11 @@ const BiodataForm = () => {
                                 className="input input-bordered  md:h-[3.5em] border-[#D1D1D1] w-full mt-1 "
                             />
                         </div>
-
-                        <button className="btn bg-[#F3D457] hover:bg-[#F3D457] mt-2 ">
-                            Button
-                        </button>
+                        <Link href="">
+                            <button className="btn bg-[#F3D457] hover:bg-[#F3D457] mt-2  text-white text-lg w-full">
+                                Submit
+                            </button>
+                        </Link>
                     </div>
                 </form>
             </div>

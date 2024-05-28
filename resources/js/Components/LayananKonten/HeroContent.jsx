@@ -3,7 +3,7 @@ import Industri from "../../assets/Layanan/industri.jpg"
 
 const HeroContent = () => {
   return (
-    <div className="pt-24 relative font-inter">
+    <div className=" relative font-inter">
             <div
                 className="w-full xl:h-[30em]  md:h-[25em] h-[15em] bg-cover static "
                 style={{

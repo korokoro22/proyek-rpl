@@ -1,3 +1,4 @@
+import { Link } from '@inertiajs/react'
 import React from 'react'
 
 const AkunForm = () => {
@@ -38,9 +39,12 @@ const AkunForm = () => {
                             />
                         </div>
 
-                        <button className="btn bg-[#F3D457] hover:bg-[#F3D457] mt-2 ">
-                            Button
+                        <Link href='/user-akun'>
+                        <button className="btn bg-[#F3D457] hover:bg-[#F3D457] mt-2 text-white text-lg w-full ">
+                            Submit
                         </button>
+                        </Link>
+                        
                     </div>
                 </form>
             </div>
