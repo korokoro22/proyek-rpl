@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('data_pengguna', function (Blueprint $table) {
             
-            $table->string('nik')->primary();
+            // $table->string('nik')->primary();
             // $table->increments('id');
+            $table->id();
             $table->string('nama');
             $table->string('usia');
             $table->string('jenis_kelamin');

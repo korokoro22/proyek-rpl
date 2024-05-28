@@ -1,11 +1,12 @@
 import DashboardAdmin from '@/Components/Layout/DashboardAdmin'
-import { Link } from '@inertiajs/react'
+import { Link, usePage } from '@inertiajs/react'
 import React from 'react'
 import {kegiatanData} from "../../utils/AdminDummy/kegiatan"
 
-const ManajemenArtikel = () => {
+const ManajemenArtikel = ({artikel}) => {  //aslinya kosong
 
-    const artikels = kegiatanData();
+    // const artikels = kegiatanData();
+    
 
   return (
     <DashboardAdmin>
@@ -20,7 +21,7 @@ const ManajemenArtikel = () => {
                             </button>
                         </Link>
                     </div>
-                    {artikels.length > 0 ? (
+                    {/* {artikels.length > 0 ? (
                         <table className="table bg-white text-black">
                             <thead>
                                 <tr>
@@ -82,7 +83,65 @@ const ManajemenArtikel = () => {
                         <div className="text-center text-2xl text-black font-inter ">
                             Tidak Ada Data Kegiatan
                         </div>
-                    )}
+                    )} */}
+
+<table className="table bg-white text-black">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Judul</th>
+                                    <th>Gambar</th>
+                                    <th> Tanggal</th>
+                                    <th>Body</th>
+                                    <th>Deskripsi</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {artikel.map((artikel, index) => (
+                                    <tr key={index}>
+                                        <th>{artikel.id}</th>
+                                        <td>
+                                            <h1 className='line-clamp-2 hover:line-clamp-none'>{artikel.judul}</h1>
+                                        </td>
+                                        <td>
+                                            <img
+                                                src={artikel.gambar}
+                                                alt="Avatar Tailwind CSS Component"
+                                                className="rounded-xl w- h-[5em] object-cover"
+                                            />
+                                        </td>
+                                        <td>{artikel.tanggal}</td>
+                                        <td className="">
+                                            <p className="text-xs text-justify line-clamp-3 hover:line-clamp-none">
+                                                {" "}
+                                                {artikel.deskripsi}
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <p className="text-xs text-justify line-clamp-3 hover:line-clamp-none">
+                                                {" "}
+                                                {artikel.deskripsi}
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <div className="xl:flex">
+                                                <Link>
+                                                    <button className="bg-[#04AA6D] text-white px-3 py-[0.5em] mt-2 mr-2 rounded-xl text-sm font-semibold">
+                                                        Edit
+                                                    </button>
+                                                </Link>
+                                                <Link>
+                                                    <button className="bg-[#d11a2a] text-white px-2 py-[0.5em] mt-2 mr-2 rounded-xl text-sm font-semibold">
+                                                        Hapus
+                                                    </button>
+                                                </Link>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                 </div>
             </div>
     </DashboardAdmin>

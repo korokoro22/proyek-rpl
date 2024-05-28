@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\NewsController;
@@ -87,9 +88,10 @@ Route::get('/edit-akun', function(){
 Route::get('/admin-kegiatan', function(){
     return Inertia::render("AdminContent/ManajemenKegiatan");
 });
-Route::get('/admin-artikel', function(){
-    return Inertia::render("AdminContent/ManajemenArtikel");
-});
+// Route::get('/admin-artikel', function(){
+//     return Inertia::render("AdminContent/ManajemenArtikel");
+// });
+
 Route::get('/admin-konsultasi', function(){
     return Inertia::render("AdminContent/ManajemenKonsultasi");
 });
@@ -104,7 +106,13 @@ Route::get('/kontak', function(){
 });
 
 
+// Route::get('/artikel', [ArtikelController::class, 'index']);
 
+// Artikel
+// Route::get('/admin-artikel', [ArtikelController::class, 'index']);
+// Route::get('/form-artikel', [ArtikelController::class, 'create']);
+// Route::post('/form-artikel', [ArtikelController::class, 'store']);
+Route::resource('/artikel', ArtikelController::class);
 
 // // Route::get('/', [NewsController::class, 'index']);
 // Route::post('/news', [NewsController::class, 'store'])->middleware(['auth', 'verified'])->name('create.news');

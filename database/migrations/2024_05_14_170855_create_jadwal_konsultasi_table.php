@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('jadwal_konsultasi', function (Blueprint $table) {
             $table->id();
-            $table->string('nomor_induk')->unique();
+            // $table->string('nomor_induk')->unique();
             $table->date('jadwal');
             $table->string('keluhan');
             $table->string('harapan');
+            $table->unsignedBigInteger('pengguna_id');
+            $table->foreign('pengguna_id')->references('id')->on('data_pengguna');
 
-            $table->foreign('nomor_induk')->references('nik')->on('data_pengguna')->onDelete('cascade');
+            // $table->foreign('nomor_induk')->references('nik')->on('data_pengguna')->onDelete('cascade');
 
             $table->timestamps();
         });
