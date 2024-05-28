@@ -12,7 +12,7 @@ const ArtikelForm = () => {
 
     const storeArtikel = (e) => {
         e.preventDefault()
-
+    
         router.post('/artikel', data)
        
     }
