@@ -21,11 +21,7 @@ const KonsulCard = ({jadwal, keluhan, harapan}) => {
         </div>
       </div>
       <div className="md:text-end text-center mb-10 ">
-                <Link>
-                    <button className="bg-[#d11a2a] text-white px-2 py-[0.5em] mt-2 mr-2 rounded-xl text-sm font-semibold">
-                        Hapus Jadwal
-                    </button>
-                </Link>
+                
                 <Link href='/form-konsultasi'>
                     <button className="bg-[#24A0ED] text-white px-2 py-[0.5em] mt-2 rounded-xl text-sm font-semibold">
                         Tambah Jadwal

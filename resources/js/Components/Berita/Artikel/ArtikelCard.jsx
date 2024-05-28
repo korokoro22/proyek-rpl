@@ -2,7 +2,7 @@ import React from 'react'
 import Industri from "../../../assets/Layanan/industri.jpg"
 const ArtikelCard = () => {
   return (
-    <div className="m-auto rounded-lg shadow-2xl w-[20em] h-[28em] font-inter text-black">
+    <div className="m-auto rounded-lg shadow-2xl w-[20em] h-[28em] font-inter text-black bg-white">
             <img src={Industri} alt="" className="rounded-t-lg" />
             <p className=" pl-2 pt-2">20 Februari 2020</p>
             <h1 className="mt-4 ml-2 font-bold text-lg">

@@ -1,3 +1,4 @@
+import { Link } from "@inertiajs/react";
 import React from "react";
 
 const KegiatanForm = () => {
@@ -57,7 +58,10 @@ const KegiatanForm = () => {
                             >
                                 Body
                             </label>
-                            <textarea className="textarea block w-full h-28 mt-1" placeholder="Body Berita"></textarea>
+                            <textarea
+                                className="textarea block w-full h-28 mt-1"
+                                placeholder="Body Berita"
+                            ></textarea>
                         </div>
 
                         <div className="">
@@ -67,12 +71,16 @@ const KegiatanForm = () => {
                             >
                                 Deskripsi
                             </label>
-                            <textarea className="textarea block w-full h-28 mt-1" placeholder="Deskripsi Berita"></textarea>
+                            <textarea
+                                className="textarea block w-full h-28 mt-1"
+                                placeholder="Deskripsi Berita"
+                            ></textarea>
                         </div>
-
-                        <button className="btn bg-[#F3D457] hover:bg-[#F3D457] mt-2 ">
-                            Button
-                        </button>
+                        <Link>
+                            <button className="btn bg-[#F3D457] hover:bg-[#F3D457] mt-2  text-white text-lg w-full">
+                                Submit
+                            </button>
+                        </Link>
                     </div>
                 </form>
             </div>

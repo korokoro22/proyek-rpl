@@ -24,9 +24,7 @@ use Inertia\Inertia;
 Route::get('/', function(){
     return Inertia::render("Homepage");
 });
-Route::get('/layanan', function(){
-    return Inertia::render("LayananKami");
-});
+
 Route::get('/layanan-content', function(){
     return Inertia::render("LayananContent");
 });
@@ -55,6 +53,9 @@ Route::get('/kegiatan-berita', function(){
 Route::get('/kegiatan-content', function(){
     return Inertia::render("KegiatanContent");
 });
+Route::get('/artikel-content', function(){
+    return Inertia::render("ArtikelContent");
+});
 
 Route::get('/artikel-berita', function(){
     return Inertia::render("Artikel");
@@ -63,9 +64,13 @@ Route::get('/artikel-berita', function(){
 Route::get('/login-dpi', function(){
     return Inertia::render("Login");
 });
+Route::get('/login-dpi-admin', function(){
+    return Inertia::render("LoginAdmin");
+});
 Route::get('/register-dpi', function(){
     return Inertia::render("Register");
 });
+
 
 Route::get('/user-akun', function(){
     return Inertia::render("UserContent/UserAkun");
@@ -98,6 +103,12 @@ Route::get('/admin-konsultasi', function(){
 Route::get('/form-kegiatan', function(){
     return Inertia::render("AdminForm/KegiatanAdmin");
 });
+Route::get('/edit-form-kegiatan', function(){
+    return Inertia::render("AdminForm/EditKegiatanAdmin");
+});
+Route::get('/edit-form-artikel', function(){
+    return Inertia::render("AdminForm/EditArtikelAdmin");
+});
 Route::get('/form-artikel', function(){
     return Inertia::render("AdminForm/ArtikelAdmin");
 });
@@ -105,6 +116,15 @@ Route::get('/kontak', function(){
     return Inertia::render("KontakPage");
 });
 
+// dynamic Route 
+
+Route::get('/layanan', function(){
+    return Inertia::render("LayananKami");
+});
+
+Route::get('/layanan-content', function(){
+    return Inertia::render("LayananContent");
+});
 
 // Route::get('/artikel', [ArtikelController::class, 'index']);
 

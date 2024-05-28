@@ -14,9 +14,10 @@ const Header = () => {
             submenu: true,
             sublinks: [
                 {
+                    id:1,
                     sublink: [
-                        { name: "Kegiatan", link: "/" },
-                        { name: "Artikel", link: "/" },
+                        { id:1, name: "Kegiatan", link: "/" },
+                        { id:2, name: "Artikel", link: "/" },
                     ],
                 },
             ],
@@ -264,10 +265,10 @@ const Header = () => {
                   `}
                                     >
                                         {link.sublinks.map((mysublinks) => (
-                                            <div className="grid grid-cols-1">
+                                            <div className="grid grid-cols-1" key={mysublinks.id}>
                                                 {mysublinks.sublink.map(
                                                     (slink) => (
-                                                        <li className="py-4 pl-7 font-semibold pr-5 text-sm text-white hover:text-[#F3D457]">
+                                                        <li key={slink.id} className="py-4 pl-7 font-semibold pr-5 text-sm text-white hover:text-[#F3D457]">
                                                             <Link
                                                                 to={slink.link}
                                                             >

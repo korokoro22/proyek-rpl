@@ -1,7 +1,9 @@
-import { Link } from "@inertiajs/react";
-import React from "react";
-const LoginForm = () => {
-    return (
+import { Link } from '@inertiajs/react'
+import React from 'react'
+
+const AdminLoginForm = () => {
+  return (
+    <div>
         <div className="flex w-full justify-center items-center pt-12 font-inter">
             <div className="md:w-[30em] md:h-[30em] h-[24em]  w-[21em] bg-[#E9E9E9] align-middle m-auto rounded-xl">
                 <form action="" className="">
@@ -19,15 +21,6 @@ const LoginForm = () => {
                             placeholder="Password"
                             className="input input-bordered md:h-[3.5em] border-[#D1D1D1] w-full"
                         />
-                        <p className="text-right text-sm">
-                            Tidak Punya akun?{" "}
-                            <Link
-                                href="/register-dpi"
-                                className="text-[#24A0ED]"
-                            >
-                                Buat Akun
-                            </Link>
-                        </p>
                         <button className="btn bg-[#F3D457] hover:bg-[#F3D457] text-white text-lg">
                             Log In
                         </button>
@@ -35,7 +28,8 @@ const LoginForm = () => {
                 </form>
             </div>
         </div>
-    );
-};
+    </div>
+  )
+}
 
-export default LoginForm;
+export default AdminLoginForm
