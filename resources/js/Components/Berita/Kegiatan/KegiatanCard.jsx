@@ -1,18 +1,16 @@
 import React from "react";
 import Industri from "../../../assets/Layanan/industri.jpg";
 
-const KegiatanCard = () => {
+const KegiatanCard = ({tanggal, judul, deskripsi}) => {
     return (
-        <div className="m-auto rounded-lg shadow-2xl bg-white w-[20em] h-[28em] font-inter text-black">
+        <div className="m-auto rounded-lg shadow-2xl w-[20em] font-inter text-black bg-white">
             <img src={Industri} alt="" className="rounded-t-lg" />
-            <p className=" pl-2 pt-2">20 Februari 2020</p>
+            <p className=" pl-2 pt-2">{tanggal}</p>
             <h1 className="mt-4 ml-2 font-bold text-lg">
-                Ngaji Bareng Pak Ustadz{" "}
+                {judul}{" "}
             </h1>
-            <p className="ml-2 h-[6.5em] mt-3 ">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-                numquam, ipsum officia suscipit esse doloribus repellendus
-                obcaecati dignissimos eius distinctio.
+            <p className=" w-[95%] m-auto mt-3 pb-5 text-justify">
+                {deskripsi}
             </p>
         </div>
     );

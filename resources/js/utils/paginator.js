@@ -53,6 +53,24 @@ const cobaPaginator = () =>([
         judul: "Susu utra milk",
         deskripsi: "Demikian pula, tidak adakah orang yang mencintai atau mengejar atau ingin mengalami penderitaan, bukan semata-mata karena penderitaan itu sendiri, tetapi karena sesekali terjadi keadaan di mana susah-payah"
     },
+    {
+        id:10,
+        tanggal:'19 oktober 1889',
+        judul: "Growing Pains",
+        deskripsi: "Demikian pula, tidak adakah orang yang mencintai atau mengejar atau ingin mengalami penderitaan, bukan semata-mata karena penderitaan itu sendiri, tetapi karena sesekali terjadi keadaan di mana susah-payah"
+    },
+    {
+        id:11,
+        tanggal:'19 Mei 2001',
+        judul: "Neck Deep",
+        deskripsi: "Demikian pula, tidak adakah orang yang mencintai atau mengejar atau ingin mengalami penderitaan, bukan semata-mata karena penderitaan itu sendiri, tetapi karena sesekali terjadi keadaan di mana susah-payah"
+    },
+    {
+        id:12,
+        tanggal:'10 Agustus 2002',
+        judul: "Asus Tuf Gaming ",
+        deskripsi: "Demikian pula, tidak adakah orang yang mencintai atau mengejar atau ingin mengalami penderitaan, bukan semata-mata karena penderitaan itu sendiri, tetapi karena sesekali terjadi keadaan di mana susah-payah"
+    },
     
 ])
 

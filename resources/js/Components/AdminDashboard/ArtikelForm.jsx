@@ -44,24 +44,18 @@ const ArtikelForm = () => {
     function handleSubmit(e) {
         e.preventDefault();
         router.post("/artikel", data);
-        // post("/artikel");
-
-        // Adil 
-        // router.post().then(res => { 
-        //     if(res.status === 200){
-        //         window.location.replace("/artikel")
-        //     }else{
-        //         console.log("Error")
-        //     }
-        //     console.log(res)
-        // }).catch(err => console.error(err))
+        post("/artikel");
         
         // router.post('/artikel', data,{
         //     onBefore:(visit)=>{},
         //     onStart:(visit)=>{},
         //     onProgress:(progress)=>{},
-        //     onSuccess:(console)=>{},
-        //     onError:(console)=>{},
+        //     onSuccess:(page)=>{
+        //         console.log(page)
+        //     },
+        //     onError:(errors)=>{
+        //         console.log(errors)
+        //     },
         //     onCancel:()=>{},
         //     onFinish: visit =>{},
 
