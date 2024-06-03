@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artikel;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
 
 class ArtikelController extends Controller
 {
@@ -29,7 +30,12 @@ class ArtikelController extends Controller
             'gambar'
         ]);
 
+        if($request->file('gambar')) {
+            $validasiData['gambar'] = $request->file('gambar')->store('artikel', 'public');
+            // $request->file('gambar')->storeAs('public/artikel', $request->file('gambar')->hashName());
+        }
 
+        Artikel::create($validasiData);
 
         // Artikel::create($validasiData);
 
@@ -43,40 +49,59 @@ class ArtikelController extends Controller
         //     'gambar'
         // ]));
 
-        // return Inertia::render('AdminForm/ArtikelAdmin');
+        return to_route('artikel.index');
     }
 
     public function edit($id) {
         $artikel = Artikel::findOrFail($id);
 
-        return Inertia::render('', [
+        return Inertia::render('AdminForm/EditArtikelAdmin', [
             'artikel' => $artikel
         ]);
     }
 
     public function update(Request $request, $id){
-        $artikel = Artikel::findOrFail($id);
-        $rules = [
+        // $artikel = Artikel::findOrFail($id);
+        // $rules = [
+        //     'judul'=>'required',
+        //     'tanggal'=>'required|date',
+        //     'deskripsi'=>'required',
+        // ];
+        
+        // $artikel = $request->validate($rules);
+
+        $validasiData = $request->validate([
             'judul'=>'required',
             'tanggal'=>'required|date',
             'deskripsi'=>'required',
-            'author'=>'required',
+            'author',
             'gambar'
-        ];
-        
-        $artikel = $request->validate($rules);
+        ]);
 
-        Artikel::where('id', $id)
-            ->update($artikel);
+        $artikel = Artikel::findOrFail($id);
 
-            return redirect()->route('');
+        if($request->file('gambar')){
+            if($artikel->gambar) {
+                Storage::delete('artikel/'.$artikel->gambar);
+            }
+
+            $gambar = $request->file('gambar')->store('artikel', 'public');
+
+            $artikel->update(['gambar' => $gambar]);
+        }
+
+        // Artikel::where('id', $id)
+        //     ->update($artikel);
+        $artikel->update($request->except('gambar'));
+
+        return to_route('artikel.index');
     }
 
     public function destroy($id) {
         $artikel = Artikel::findOrFail($id);
         $artikel->delete();
 
-        return redirect()->route('');
+        return to_route('artikel.index');
     }
 }
 

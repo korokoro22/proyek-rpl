@@ -10,7 +10,7 @@ const ManajemenKonsultasi = () => {
 
   return (
     <DashboardAdmin>
-        <div className="font-inter py-16 ">
+        <div className="font-inter py-16">
                 <div
                     className={` m-auto `}
                 >

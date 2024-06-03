@@ -1,12 +1,146 @@
 import EditArtikelForm from '@/Components/AdminDashboard/EditArtikelForm'
 import HeaderRegister from '@/Components/HeaderRegister'
-import React from 'react'
+import { router, Link } from '@inertiajs/react'
+import React, { useState } from 'react'
 
-const EditArtikelAdmin = () => {
+const EditArtikelAdmin = ({artikel}) => {
+
+  const [values, setValues] = useState({
+    judul: artikel.judul,
+    tanggal: artikel.tanggal,
+    deskripsi:artikel.deskripsi,
+    gambar: null, //tambahan
+})
+
+function handleChange(e) {
+    const key = e.target.id;
+    const value = e.target.value
+    setValues(values => ({
+        ...values,
+        [key]: value,
+    }))
+}
+
+// function handleSubmit(e) {
+//     e.preventDefault()
+//     router.put(`/artikel/${artikel.id}`, values)
+// }
+
+function handleSubmit(e) {
+    e.preventDefault()
+    const formData = new FormData(); // create a new FormData instance
+    formData.append('judul', values.judul);
+    formData.append('tanggal', values.tanggal);
+    formData.append('deskripsi', values.deskripsi);
+    formData.append('gambar', values.gambar); // add the file to the formData
+
+    router.put(`/artikel/${artikel.id}`, formData) // send the formData to the server
+  }
+
+function handleFileChange(e) {
+    setValues(values => ({
+     ...values,
+      gambar: e.target.files[0], // store the file
+    }))
+  }
+
   return (
     <div>
         <HeaderRegister />
-        <EditArtikelForm />
+        {/* <EditArtikelForm /> */}
+        <div className="flex w-full justify-center items-center py-10 font-inter">
+            <div className="lg:w-[55em] md:h-[51em] md:w-[45em] h-[49em] w-[21em] bg-[#E9E9E9] m-auto rounded-lg">
+                <form action="" onSubmit={handleSubmit} className="">
+                    <div className="lg:w-[50em] md:w-[40em] w-[20em]  m-auto md:mt-10 mt-10 flex flex-col gap-y-3">
+                        <h1 className="md:text-4xl text-3xl font-bold  color-black">
+                            Edit Artikel
+                        </h1>
+                        <div className="mt-5">
+                            <label
+                                htmlFor=""
+                                className="pl-1 font-bold text-lg"
+                            >
+                                Judul
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Judul"
+                                className="input input-bordered  md:h-[3.5em] border-[#D1D1D1] w-full mt-1 "
+                                id='judul'
+                                value={values.judul}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className="">
+                            <label
+                                htmlFor=""
+                                className="pl-1 font-bold text-lg"
+                            >
+                                Gambar
+                            </label>
+                            <input
+                                type="file"
+                                className="file-input md:h-[3.5em] border-[#D1D1D1] w-full mt-1 flex items-center justify-center "
+                                id='gambar'
+                                onChange={handleFileChange}
+                            />
+                        </div>
+
+                        <div className="">
+                            <label
+                                htmlFor=""
+                                className="pl-1 font-bold text-lg"
+                            >
+                                Tanggal
+                            </label>
+                            <input
+                                type="date"
+                                placeholder="Tanggal"
+                                className="input input-bordered  md:h-[3.5em] border-[#D1D1D1] w-full mt-1 "
+                                id='tanggal'
+                                value={values.tanggal}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className="">
+                            <label
+                                htmlFor=""
+                                className="pl-1 font-bold text-lg"
+                            >
+                                Body
+                            </label>
+                            <textarea
+                                className="textarea block w-full h-28 mt-1"
+                                placeholder="Body Berita"
+                                id='deskripsi'
+                                value={values.deskripsi}
+                                onChange={handleChange}
+                            ></textarea>
+                        </div>
+
+                        {/* <div className="">
+                            <label
+                                htmlFor=""
+                                className="pl-1 font-bold text-lg"
+                            >
+                                Deskripsi
+                            </label>
+                            <textarea
+                                className="textarea block w-full h-28 mt-1"
+                                placeholder="Deskripsi Berita"
+                            ></textarea>
+                        </div> */}
+                        
+                            <button className="btn bg-[#F3D457] hover:bg-[#F3D457] mt-2  text-white text-lg w-full" type='submit'>
+                                Submit
+                            </button>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
   )
 }

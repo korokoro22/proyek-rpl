@@ -8,6 +8,7 @@ const HeaderRegister = () => {
                 <img src={DpiLogo} alt="" className="h-[3.5em]" />
             </div>
             <p className="text-center font-semibold">Daya Potensia Indonesia</p>
+            
         </div>
     );
 };

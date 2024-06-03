@@ -100,12 +100,13 @@ Route::get('/admin-kegiatan', function(){
 Route::get('/admin-konsultasi', function(){
     return Inertia::render("AdminContent/ManajemenKonsultasi");
 });
-Route::get('/form-kegiatan', function(){
-    return Inertia::render("AdminForm/KegiatanAdmin");
-});
-Route::get('/edit-form-kegiatan', function(){
-    return Inertia::render("AdminForm/EditKegiatanAdmin");
-});
+// Route::get('/form-kegiatan', function(){
+//     return Inertia::render("AdminForm/KegiatanAdmin");
+// });
+// Route::get('/edit-form-kegiatan', function(){
+//     return Inertia::render("AdminForm/EditKegiatanAdmin");
+// });
+
 Route::get('/edit-form-artikel', function(){
     return Inertia::render("AdminForm/EditArtikelAdmin");
 });
@@ -133,6 +134,7 @@ Route::get('/layanan-content', function(){
 // Route::get('/form-artikel', [ArtikelController::class, 'create']);
 // Route::post('/form-artikel', [ArtikelController::class, 'store']);
 Route::resource('/artikel', ArtikelController::class);
+Route::resource('/kegiatan', KegiatanController::class);
 
 // // Route::get('/', [NewsController::class, 'index']);
 // Route::post('/news', [NewsController::class, 'store'])->middleware(['auth', 'verified'])->name('create.news');

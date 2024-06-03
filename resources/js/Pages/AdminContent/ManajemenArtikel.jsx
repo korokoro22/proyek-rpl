@@ -1,11 +1,23 @@
 import DashboardAdmin from '@/Components/Layout/DashboardAdmin'
-import { Link, usePage } from '@inertiajs/react'
+import { Link, router, usePage } from '@inertiajs/react'
 import React from 'react'
 import {kegiatanData} from "../../utils/AdminDummy/kegiatan"
 
 const ManajemenArtikel = ({artikel}) => {  //aslinya kosong
 
     // const artikels = kegiatanData();
+
+    // const deleteArtikel = async (id) => {
+    //     Inertia.delete(`/artikel/${id}`);
+    // }   
+
+    function deleteArtikel( id ) {
+        router.delete(`/artikel/${id}`);
+    }
+
+    // function destroy(e) {
+    //         router.delete(route("artikel.destroy", e.currentTarget.id));
+    // }
     
 
   return (
@@ -15,7 +27,7 @@ const ManajemenArtikel = ({artikel}) => {  //aslinya kosong
                     className={` m-auto `}
                 >
                     <div className="md:text-end mb-2 mr-2 ">
-                        <Link href='/form-artikel'>
+                        <Link href='/artikel/create'>
                             <button className="bg-[#24A0ED] text-white px-2 py-[0.5em] rounded-xl text-sm font-semibold">
                                 Tambah Kegiatan
                             </button>
@@ -126,16 +138,12 @@ const ManajemenArtikel = ({artikel}) => {  //aslinya kosong
                                         </td>
                                         <td>
                                             <div className="xl:flex">
-                                                <Link>
-                                                    <button className="bg-[#04AA6D] text-white px-3 py-[0.5em] mt-2 mr-2 rounded-xl text-sm font-semibold">
+                                                <Link href={`/artikel/${artikel.id}/edit`} className="bg-[#04AA6D] text-white px-3 py-[0.5em] mt-2 mr-2 rounded-xl text-sm font-semibold">
                                                         Edit
-                                                    </button>
                                                 </Link>
-                                                <Link>
-                                                    <button className="bg-[#d11a2a] text-white px-2 py-[0.5em] mt-2 mr-2 rounded-xl text-sm font-semibold">
+                                                    <button className="bg-[#d11a2a] text-white px-2 py-[0.5em] mt-2 mr-2 rounded-xl text-sm font-semibold" onClick={() => deleteArtikel(artikel.id)}>
                                                         Hapus
                                                     </button>
-                                                </Link>
                                             </div>
                                         </td>
                                     </tr>

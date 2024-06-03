@@ -2,69 +2,78 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\KegiatanCollection;
 use App\Models\Kegiatan;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class KegiatanController extends Controller
 {
-    public function index()
-    {
-        $kegiatan = new KegiatanCollection(Kegiatan::OrderByDesc("id")->paginate(8));
-        return Inertia::render("Homepage", [
-            'title' => "Kegiatan DPI",
-            'description' => "Kegiatan Daya Potensia Indonesia",
+    public function index() {
+        $kegiatan = Kegiatan::all();
+
+        return Inertia::render('AdminContent/ManajemenKegiatan', [
             'kegiatan' => $kegiatan
         ]);
     }
 
-    public function create()
-    {
-        return inertia(''); //halaman create
-    }
-    
-    
-    public function store(Request $request)
-    {
-        $kegiatan = new Kegiatan();
-        $kegiatan->judul = $request->judul;
-        $kegiatan->deskripsi = $request->deskripsi;
-        $kegiatan->kategori = $request->kategori;
-        $kegiatan->author = auth()->user()->email;
-        $kegiatan->save();
-        return redirect()->back()->with("message", 'kegiatan berhasil dibuat');
+    public function create() {
+        return Inertia::render('AdminForm/KegiatanAdmin');
     }
 
-    public function show(Kegiatan $kegiatan)
-    {
-        $kegiatandpi = $kegiatan::where('author', auth()->user()->email)->get();
-        return Inertia::render("Dashboard", [
-            'kegiatandpi' => $kegiatandpi,
-        ]);
-    }
+    // public function store(Request $request) {
+    //     $validasiData = $request->validate([
+    //         'judul'=>'required',
+    //         'tanggal'=>'required|date',
+    //         'deskripsi'=>'required',
+    //         'author',
+    //         'gambar'
+    //     ]);
 
-    public function edit(Kegiatan $kegiatan, Request $request)
-    {
-        return Inertia::render('EditKegiatan',[
-            'kegiatandpi'=> $kegiatan->find($request->id)
-        ]);
-    }
+    //     Kegiatan::create($validasiData);
 
-    public function update(Request $request)
-    {
-        $updateKegiatan = Kegiatan::where( 'id', $request->id )->update([
-            'judul' => $request->judul,
-            'deskripsi' => $request->deskripsi,
-            'kategori' => $request->kategori,
-        ]);
-        return to_route('dashboard-kegiatan')->with("message", 'Update Kegiatan Berhasil'); 
-    }
+    //     // Kegiatan::create($validasiData);
 
-    public function destroy(Request $request)
-    {
-        $kegiatan = Kegiatan::find($request->id);
-        $kegiatan->delete();
-        return redirect()->back()->with("message", 'berita berhasil dihapus');
-    }
+    //     // return to_route('AdminContent/Manajemenkegiatan');
+
+    //     // Kegiatan::create($request->validate([
+    //     //     'judul'=>'required',
+    //     //     'tanggal'=>'required|date',
+    //     //     'deskripsi'=>'required',
+    //     //     'author',
+    //     //     'gambar'
+    //     // ]));
+
+    //     // return Inertia::render('AdminForm/kegiatanAdmin');
+    // }
+
+    // public function edit($id) {
+    //     $kegiatan = Kegiatan::findOrFail($id);
+
+    //     return Inertia::render('AdminForm/EditKegiatanAdmin', [
+    //         'kegiatan' => $kegiatan
+    //     ]);
+    // }
+
+    // public function update(Request $request, $id){
+    //     $kegiatan = Kegiatan::findOrFail($id);
+    //     $rules = [
+    //         'judul'=>'required',
+    //         'tanggal'=>'required|date',
+    //         'deskripsi'=>'required',
+    //     ];
+        
+    //     $kegiatan = $request->validate($rules);
+
+    //     Kegiatan::where('id', $id)
+    //         ->update($kegiatan);
+
+    //         return redirect()->route('kegiatan.index');
+    // }
+
+    // public function destroy($id) {
+    //     $kegiatan = Kegiatan::findOrFail($id);
+    //     $kegiatan->delete();
+
+    //     return redirect()->route('kegiatan.index');
+    // }
 }
