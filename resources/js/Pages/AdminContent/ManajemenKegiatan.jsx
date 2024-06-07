@@ -13,7 +13,7 @@ const ManajemenKegiatan = ({kegiatan}) => {
                     <div className="md:text-end mb-2 mr-2 ">
                         <Link href="/form-kegiatan">
                             <button className="bg-[#24A0ED] text-white px-2 py-[0.5em] rounded-xl text-sm font-semibold">
-                                Tambah Kegiatan bosku
+                                Tambah Kegiatan
                             </button>
                         </Link>
                     </div>

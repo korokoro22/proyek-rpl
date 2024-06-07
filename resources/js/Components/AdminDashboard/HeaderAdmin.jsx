@@ -3,7 +3,7 @@ import LogoDpi from "../../assets/logo/dpilogo.png";
 import Avatar from "../../assets/logo/avatar.png";
 import { Link } from "@inertiajs/react";
 
-const HeaderAdmin = ({open, setOpen}) => {
+const HeaderAdmin = () => {
     const [login, setLogin] = useState(false);
 
     return (

@@ -7,13 +7,6 @@ const DashboardAdmin = ({ children }) => {
 
     const [open, setOpen] = useState(true);
 
-    useEffect(() => {
-        window.localStorage.setItem("buka", open);
-        console.log("status open: ", open)
-    }, [open]);
-
-
-
     return (
         <div>
             <main className="flex w-full">
