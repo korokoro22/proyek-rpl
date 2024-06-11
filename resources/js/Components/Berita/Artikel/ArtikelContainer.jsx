@@ -3,7 +3,7 @@ import ArtikelCard from "./ArtikelCard";
 import { Link } from "@inertiajs/react";
 import ReactPaginate from "react-paginate"; // for pagination
 
-const ArtikelContainer = ({ cobas }) => {
+const ArtikelContainer = ({ cobas, artikels }) => {
     const [page, setPage] = useState(0);
     const [filterData, setFilterData] = useState();
     const n = 6;
@@ -26,10 +26,36 @@ const ArtikelContainer = ({ cobas }) => {
                     .map((coba) => (
                         <ArtikelCard key={coba.id} {...coba} />
                     ))} */}
-                {filterData &&
+                {/* {filterData &&
                     filterData.map((item) => (
-                        <ArtikelCard key={item.id} {...item} />
-                    ))}
+                        <ArtikelCard
+                            artikelz={artikels}
+                            key={item.id}
+                            {...item}
+                        />
+                    ))} */}
+                {artikels.map((artikelz, index) => (
+                    <Link href={`/viewartikel/${artikelz.id}`}>
+                        <div
+                            className="m-auto rounded-lg shadow-2xl w-[20em] font-inter text-black bg-white"
+                            key={index}
+                        >
+                            <img
+                                src={`/storage/${artikelz.gambar}`}
+                                alt=""
+                                className="rounded-t-lg"
+                            />
+                            <p className=" pl-2 pt-2">{artikelz.tanggal}</p>
+                            <h1 className="mt-4 ml-2 font-bold text-lg">
+                                {artikelz.judul}
+                            </h1>
+                            <p className=" w-[95%] m-auto mt-3 pb-5 text-justify">
+                                {artikelz.deskripsi}
+                            </p>
+                        </div>
+                    </Link>
+                    // <ArtikelCard artikelz={artikels} key={art.id} {...art} />
+                ))}
             </div>
             {/* <div className="text-center ">
                 <Link >
@@ -46,13 +72,8 @@ const ArtikelContainer = ({ cobas }) => {
                     onPageChange={(event) => setPage(event.selected)}
                     breakLabel="..."
                     pageCount={Math.ceil(cobas.length / n)}
-                    previousLabel={
-                        <button className="join-item btn">«</button>
-
-                    }
-                    nextLabel={
-                        <button className="join-item btn">»</button>
-                    }
+                    previousLabel={<button className="join-item btn">«</button>}
+                    nextLabel={<button className="join-item btn">»</button>}
                 />
             </div>
         </div>

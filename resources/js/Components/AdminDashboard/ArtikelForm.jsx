@@ -1,66 +1,18 @@
 import React, { useState } from "react";
 import { Link, router, useForm } from "@inertiajs/react";
+// import { route } from "vendor/tightenco/ziggy/src/js";
 
 const ArtikelForm = () => {
-    // rezma
-    // const {data, setData} = useForm({
-    //     judul: "",
-    //     tanggal: "",
-    //     deskripsi: "",
-    //     gambar: ""
-    // })
-
-    // const storeArtikel = (e) => {
-    //     e.preventDefault()
-
-    //     router.post('/artikel', data, {
-    //         forceFormData: true
-    //     })
-    // }
-
-    // const [data, setData] = useState({
-    //     judul: "",
-    //     tanggal: "",
-    //     deskripsi: "",
-    // });
-
-    const {data, setData} = useForm({
+    const { data, setData } = useForm({
         judul: "",
         tanggal: "",
         deskripsi: "",
-        gambar: ""
+        gambar: "",
     });
-
-
-    // const handleChange = (e) => {
-    //     const key = e.target.id;
-    //     const value = e.target.value;
-    //     setData((data) => ({
-    //         ...data,
-    //         [key]: value,
-    //     }));
-    // };
 
     function handleSubmit(e) {
         e.preventDefault();
         router.post("/artikel", data);
-        post("/artikel");
-        
-        // router.post('/artikel', data,{
-        //     onBefore:(visit)=>{},
-        //     onStart:(visit)=>{},
-        //     onProgress:(progress)=>{},
-        //     onSuccess:(page)=>{
-        //         console.log(page)
-        //     },
-        //     onError:(errors)=>{
-        //         console.log(errors)
-        //     },
-        //     onCancel:()=>{},
-        //     onFinish: visit =>{},
-
-        // })
-
     }
 
     return (
@@ -86,7 +38,9 @@ const ArtikelForm = () => {
                                 id="judul"
                                 value={data.judul}
                                 // onChange={handleChange}
-                                onChange={e => setData('judul', e.target.value)}
+                                onChange={(e) =>
+                                    setData("judul", e.target.value)
+                                }
                             />
                         </div>
 
@@ -101,8 +55,10 @@ const ArtikelForm = () => {
                                 type="file"
                                 className="file-input md:h-[3.5em] border-[#D1D1D1] w-full mt-1 flex items-center justify-center "
                                 id="gambar"
-                                // value={data.gambar} 
-                                onChange={e => setData('gambar', e.target.files[0])}
+                                // value={data.gambar}
+                                onChange={(e) =>
+                                    setData("gambar", e.target.files[0])
+                                }
                             />
                         </div>
 
@@ -120,7 +76,9 @@ const ArtikelForm = () => {
                                 id="tanggal"
                                 value={data.tanggal}
                                 // onChange={handleChange}
-                                onChange={e => setData('tanggal', e.target.value)}
+                                onChange={(e) =>
+                                    setData("tanggal", e.target.value)
+                                }
                             />
                         </div>
 
@@ -137,7 +95,9 @@ const ArtikelForm = () => {
                                 placeholder="Body Artikel"
                                 value={data.deskripsi}
                                 // onChange={handleChange}
-                                onChange={e => setData('deskripsi', e.target.value)}
+                                onChange={(e) =>
+                                    setData("deskripsi", e.target.value)
+                                }
                             ></textarea>
                         </div>
 
@@ -151,14 +111,12 @@ const ArtikelForm = () => {
                             <textarea className="textarea block w-full h-28 mt-1" placeholder="Deskripsi Artikel"></textarea>
                         </div> */}
 
-                        
-                            <button
-                                className="btn bg-[#F3D457] hover:bg-[#F3D457] mt-2 text-white text-lg w-full"
-                                type="submit"
-                            >
-                                Submit
-                            </button>
-                        
+                        <button
+                            type="submit"
+                            className="btn bg-[#F3D457] hover:bg-[#F3D457] mt-2 text-white text-lg w-full"
+                        >
+                            Submit
+                        </button>
                     </div>
                 </form>
             </div>

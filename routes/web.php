@@ -5,6 +5,8 @@ use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TampilanArtikelController;
+use App\Http\Controllers\TampilanKegiatanController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -21,83 +23,86 @@ use Inertia\Inertia;
 */
 
 
-Route::get('/', function(){
+Route::get('/', function () {
     return Inertia::render("Homepage");
 });
 
-Route::get('/layanan-content', function(){
+Route::get('/layanan-content', function () {
     return Inertia::render("LayananContent");
 });
-Route::get('/industri', function(){
+Route::get('/industri', function () {
     return Inertia::render("Layanan/Industri");
 });
-Route::get('/klinis', function(){
+Route::get('/klinis', function () {
     return Inertia::render("Layanan/Klinis");
 });
-Route::get('/forensik', function(){
+Route::get('/forensik', function () {
     return Inertia::render("Layanan/Forensik");
 });
-Route::get('/pendidikan', function(){
+Route::get('/pendidikan', function () {
     return Inertia::render("Layanan/Pendidikan");
 });
-Route::get('/sosial', function(){
+Route::get('/sosial', function () {
     return Inertia::render("Layanan/Sosial");
 });
-Route::get('/lainnya', function(){
+Route::get('/lainnya', function () {
     return Inertia::render("Layanan/Lainnya");
 });
 
-Route::get('/kegiatan-berita', function(){
+//-------------------------------------------------
+Route::get('/kegiatan-berita', function () {
     return Inertia::render("Kegiatan");
 });
-Route::get('/kegiatan-content', function(){
+Route::get('/kegiatan-content', function () {
     return Inertia::render("KegiatanContent");
 });
-Route::get('/artikel-content', function(){
+//---------------------------------------------------
+
+Route::get('/artikel-content', function () {
     return Inertia::render("ArtikelContent");
 });
 
-Route::get('/artikel-berita', function(){
-    return Inertia::render("Artikel");
-});
+// Route::get('/artikel-berita', function () {
+//     return Inertia::render("Artikel");
+// });
 
-Route::get('/login-dpi', function(){
+Route::get('/login-dpi', function () {
     return Inertia::render("Login");
 });
-Route::get('/login-dpi-admin', function(){
+Route::get('/login-dpi-admin', function () {
     return Inertia::render("LoginAdmin");
 });
-Route::get('/register-dpi', function(){
+Route::get('/register-dpi', function () {
     return Inertia::render("Register");
 });
 
 
-Route::get('/user-akun', function(){
+Route::get('/user-akun', function () {
     return Inertia::render("UserContent/UserAkun");
 });
-Route::get('/user-profile', function(){
+Route::get('/user-profile', function () {
     return Inertia::render("UserContent/UserProfile");
 });
-Route::get('/jadwal-konsul', function(){
+Route::get('/jadwal-konsul', function () {
     return Inertia::render("UserContent/JadwalKonsul");
 });
-Route::get('/form-biodata', function(){
+Route::get('/form-biodata', function () {
     return Inertia::render("Form/Biodata");
 });
-Route::get('/form-konsultasi', function(){
+Route::get('/form-konsultasi', function () {
     return Inertia::render("Form/Konsultasi");
 });
-Route::get('/edit-akun', function(){
+Route::get('/edit-akun', function () {
     return Inertia::render("Form/EditAkun");
 });
-Route::get('/admin-kegiatan', function(){
+Route::get('/admin-kegiatan', function () {
     return Inertia::render("AdminContent/ManajemenKegiatan");
 });
 // Route::get('/admin-artikel', function(){
 //     return Inertia::render("AdminContent/ManajemenArtikel");
 // });
 
-Route::get('/admin-konsultasi', function(){
+Route::get('/admin-konsultasi', function () {
     return Inertia::render("AdminContent/ManajemenKonsultasi");
 });
 // Route::get('/form-kegiatan', function(){
@@ -107,23 +112,23 @@ Route::get('/admin-konsultasi', function(){
 //     return Inertia::render("AdminForm/EditKegiatanAdmin");
 // });
 
-Route::get('/edit-form-artikel', function(){
+Route::get('/edit-form-artikel', function () {
     return Inertia::render("AdminForm/EditArtikelAdmin");
 });
-Route::get('/form-artikel', function(){
+Route::get('/form-artikel', function () {
     return Inertia::render("AdminForm/ArtikelAdmin");
 });
-Route::get('/kontak', function(){
+Route::get('/kontak', function () {
     return Inertia::render("KontakPage");
 });
 
 // dynamic Route 
 
-Route::get('/layanan', function(){
+Route::get('/layanan', function () {
     return Inertia::render("LayananKami");
 });
 
-Route::get('/layanan-content', function(){
+Route::get('/layanan-content', function () {
     return Inertia::render("LayananContent");
 });
 
@@ -135,7 +140,8 @@ Route::get('/layanan-content', function(){
 // Route::post('/form-artikel', [ArtikelController::class, 'store']);
 Route::resource('/artikel', ArtikelController::class);
 Route::resource('/kegiatan', KegiatanController::class);
-
+Route::resource('/viewartikel', TampilanArtikelController::class);
+Route::resource('/viewkegiatan', TampilanKegiatanController::class);
 // // Route::get('/', [NewsController::class, 'index']);
 // Route::post('/news', [NewsController::class, 'store'])->middleware(['auth', 'verified'])->name('create.news');
 // Route::get('/news', [NewsController::class, 'show'])->middleware(['auth', 'verified'])->name('my.news');
@@ -170,4 +176,4 @@ Route::resource('/kegiatan', KegiatanController::class);
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
