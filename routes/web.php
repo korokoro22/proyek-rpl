@@ -139,10 +139,11 @@ Route::get('/layanan-content', function () {
 // Route::get('/admin-artikel', [ArtikelController::class, 'index']);
 // Route::get('/form-artikel', [ArtikelController::class, 'create']);
 // Route::post('/form-artikel', [ArtikelController::class, 'store']);
-Route::resource('/artikel', ArtikelController::class);
+
 
 Route::resource('/viewartikel', TampilanArtikelController::class);
 Route::resource('/viewkegiatan', TampilanKegiatanController::class);
+Route::resource('/kegiatan', KegiatanController::class);
 
 Route::middleware('guest')->prefix('admin')->group(function () {
     Route::get('/login', [LoginAdminController::class, 'index'])->name('admin.login');
@@ -151,8 +152,9 @@ Route::middleware('guest')->prefix('admin')->group(function () {
     // Route::post(/login)
 });
 
-Route::middleware('auth:admin')->prefix('admin')->group(function () {
+Route::middleware('auth:admin')->group(function () {
     Route::resource('/kegiatan', KegiatanController::class);
+    Route::resource('/artikel', ArtikelController::class);
 });
 // // Route::get('/', [NewsController::class, 'index']);
 // Route::post('/news', [NewsController::class, 'store'])->middleware(['auth', 'verified'])->name('create.news');
