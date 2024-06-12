@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\LoginAdminController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TampilanArtikelController;
@@ -139,9 +140,20 @@ Route::get('/layanan-content', function () {
 // Route::get('/form-artikel', [ArtikelController::class, 'create']);
 // Route::post('/form-artikel', [ArtikelController::class, 'store']);
 Route::resource('/artikel', ArtikelController::class);
-Route::resource('/kegiatan', KegiatanController::class);
+
 Route::resource('/viewartikel', TampilanArtikelController::class);
 Route::resource('/viewkegiatan', TampilanKegiatanController::class);
+
+Route::middleware('guest')->prefix('admin')->group(function () {
+    Route::get('/login', [LoginAdminController::class, 'index'])->name('admin.login');
+    Route::post('/login', [LoginAdminController::class, 'store'])->name('admin.login');
+
+    // Route::post(/login)
+});
+
+Route::middleware('auth:admin')->prefix('admin')->group(function () {
+    Route::resource('/kegiatan', KegiatanController::class);
+});
 // // Route::get('/', [NewsController::class, 'index']);
 // Route::post('/news', [NewsController::class, 'store'])->middleware(['auth', 'verified'])->name('create.news');
 // Route::get('/news', [NewsController::class, 'show'])->middleware(['auth', 'verified'])->name('my.news');
