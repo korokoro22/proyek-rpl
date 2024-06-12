@@ -12,7 +12,7 @@ const ManajemenKegiatan = ({ kegiatan }) => {
 
     return (
         <DashboardAdmin>
-            <div className={`font-inter py-16  bg-slate-800`}>
+            <div className={`font-inter py-16 `}>
                 <div>
                     <div className="md:text-end mb-2 mr-2 ">
                         <Link href="/kegiatan/create">

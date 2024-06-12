@@ -6,22 +6,23 @@ const Sidebar = ({open, setOpen}) => {
     const menuItem = [
         {   
             id:1,
-            path: "/admin-kegiatan",
+            path: "/kegiatan",
             name: "Kegiatan",
             icon: <ion-icon name="receipt-outline"></ion-icon>,
         },
         {
             id:2,
-            path: "/admin-artikel",
+            path: "/artikel",
             name: "Artikel",
             icon: <ion-icon name="reader-outline"></ion-icon>,
         },
         {
             id:3,
-            path: "/admin-konsultasi",
-            name: "Konsultasi",
-            icon: <ion-icon name="calendar-outline"></ion-icon>,
+            path: "/",
+            name: "Log Out",
+            icon: <ion-icon name="log-out-outline"></ion-icon>,
         },
+        
     ];
 
     return (

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Iluminate\Support\Facades\Session;
 use Inertia\Inertia;
 
 class LoginAdminController extends Controller
@@ -35,5 +36,15 @@ class LoginAdminController extends Controller
             //redirect route dashboard
             return to_route('kegiatan.index');
         }
+
+        
+    }
+
+    public function logout(Request $request) {
+        Auth::guard('admin')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

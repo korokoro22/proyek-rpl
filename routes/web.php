@@ -148,6 +148,7 @@ Route::resource('/kegiatan', KegiatanController::class);
 Route::middleware('guest')->prefix('admin')->group(function () {
     Route::get('/login', [LoginAdminController::class, 'index'])->name('admin.login');
     Route::post('/login', [LoginAdminController::class, 'store'])->name('admin.login');
+    Route::get('/logout', [LoginAdminController::class, 'logout'])->name('admin.logout');
 
     // Route::post(/login)
 });

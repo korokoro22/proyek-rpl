@@ -19,7 +19,7 @@ const KegiatanContainer = ({ cobas, kegiatans }) => {
 
     return (
         <div className="bg-[#e9e9e9]">
-            <div className="flex flex-wrap md:max-w-[45em] lg:max-w-[70em] m-auto py-5 gap-y-5">
+            <div className="flex flex-wrap justify-center md:max-w-[45em] lg:max-w-[70em] m-auto py-5 gap-y-5 gap-6">
                 {kegiatans.map((kegiatanz, index) => (
                     <Link href={`/viewartikel/${kegiatanz.id}`}>
                         <div

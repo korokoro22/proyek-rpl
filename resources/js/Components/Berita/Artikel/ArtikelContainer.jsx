@@ -20,7 +20,7 @@ const ArtikelContainer = ({ cobas, artikels }) => {
 
     return (
         <div className="bg-[#e9e9e9]">
-            <div className="flex flex-wrap md:max-w-[45em] lg:max-w-[70em] m-auto py-5 gap-y-5">
+            <div className="flex flex-wrap justify-center md:max-w-[45em] lg:max-w-[70em] m-auto py-5 gap-y-5 gap-6">
                 {/* {cobas
                     .filter((cob) => cob.id <= 6)
                     .map((coba) => (
@@ -35,7 +35,7 @@ const ArtikelContainer = ({ cobas, artikels }) => {
                         />
                     ))} */}
                 {artikels.map((artikelz, index) => (
-                    <Link href={`/viewartikel/${artikelz.id}`}>
+                    <Link href={`/viewartikel/${artikelz.id}` } className="m-auto rounded-lg shadow-2xl w-[20em] font-inter text-black bg-white" >
                         <div
                             className="m-auto rounded-lg shadow-2xl w-[20em] font-inter text-black bg-white"
                             key={index}

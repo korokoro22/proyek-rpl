@@ -138,10 +138,10 @@ const Header = () => {
                             className="dropdown-content z-[1] menu p-2 mt-4 shadow bg-base-100 rounded-box w-40 mr-10 text-black"
                         >
                             <li>
-                                <Link href="/kegiatan-berita">Kegiatan </Link>
+                                <Link href="/viewkegiatan">Kegiatan </Link>
                             </li>
                             <li>
-                                <Link href="/artikel-berita">Artikel</Link>
+                                <Link href="/viewartikel">Artikel</Link>
                             </li>
                         </ul>
                     </div>
@@ -149,7 +149,7 @@ const Header = () => {
                 <li>
                     <Link
                         className="font-inter font-medium xl:text-xl lg:text-lg pr-10 hover:text-[#F3D457] "
-                        to="/"
+                        to="/kontak"
                     >
                         Kontak Kami
                     </Link>
@@ -211,11 +211,11 @@ const Header = () => {
                             Masuk
                         </button>
                     )} */}
-                    <Link href="/login-dpi">
+                    {/* <Link href="/login-dpi">
                         <button className="font-inter font-semibold xl:text-xl lg:text-lg mr-10 px-4 hover:bg-[#f3d457] hover:text-black py-[0.30rem] rounded-xl	 text-black bg-white">
                             Masuk
                         </button>
-                    </Link>
+                    </Link> */}
                 </li>
             </ul>
 
